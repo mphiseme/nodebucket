@@ -37,18 +37,18 @@ const CONN = config.dbConn;
 mongoose.set('strictQuery', false);
 
 mongoose.connect(CONN).then(() => {
-  console.log('Connection to the database was successful');
+  console.log('Connection to the database was successful'); // message when app is connected to database mongodb
 },
 err => {
   console.log(config.mongoServerError  + ':' + err.message);
 });
 
 mongoose.connection.on('error', err => {
-  console.log(config.mongoServerError + ':' + err.message)
+  console.log(config.mongoServerError + ':' + err.message)// message when app is disconnected to database mongodb
 })
 
 mongoose.connection.on('disconnected', () =>{
-  console.log('Server disconnected from host (MongoDB Atlas).');
+  console.log('Server disconnected from host (MongoDB Atlas).'); // message when app is disconnected from mongodb
 })
 
 /**
