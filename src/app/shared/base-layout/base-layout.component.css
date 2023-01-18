@@ -1,0 +1,12 @@
+/**
+ Title: base-layout.component.css
+ Author: Professor Krasso
+ Modified By: Manel Phiseme
+ Date Jan 15, 2023
+ Description: css formating logging form for Nodebucket project
+*/
+
+.Login-container {
+  width: 35%;
+  margin: 10% auto;
+}

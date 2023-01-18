@@ -1,0 +1,13 @@
+
+/**
+ Title: login.component.css
+ Author: Professor Krasso
+ Modified By: Manel Phiseme
+ Date Jan 15, 2023
+ Description: css formating for Nodebucket project
+*/
+
+.login-container {
+  width: 35%;
+  margin: 10% auto;
+}

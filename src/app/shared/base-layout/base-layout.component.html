@@ -1,0 +1,47 @@
+<!--
+  Title: base-layout.component.html
+ Author: Professor Krasso
+ Date: Jan 15,2023
+ Modified By: Manel phiseme
+ Description: The html page for login form
+Attributions:
+https://material.angular.io/
+https://angular.io/api/forms/NgForm
+https://github.com/angular/flex-layout
+http://primefaces.org/primeng/messages
+-->
+<header>
+  <!--navbar-->
+  <nav fxFlex>
+    <mat-toolbar style="border-bottom: 15px solid #D6A800; height: 100px;" color="primary">
+      <!--navbar container-->
+      <div class="navbar-container">
+         <!-- logo -->
+         <button class="logo" routerLink="/" mat-button>nodebucket</button>
+
+         <button class="navbar-link" routerLink="/" mat-button>Home</button>
+         <button class="navbar-link" mat-button>About</button>
+      </div>
+
+      <div fxFlex></div>
+
+      <button (click)="logout()" mat-button class="navbar-link">Log out</button>
+    </mat-toolbar>
+  </nav>
+</header>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<footer>
+  <mat-toolbar class="footer-content">
+    <div fxFlex></div>
+    <p>
+      &copy; {{year | date: 'yyyy'}} - nodebucket - <a href="https://www.bellevue.edu/" class="bu-link" target ="_blank"> Bellevue University</a>
+    </p>
+  </mat-toolbar>
+</footer>
+
+
+
