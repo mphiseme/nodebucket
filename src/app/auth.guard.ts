@@ -28,11 +28,16 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
+      //get user id store in cookie id or session
       const sessionUser = this.cookieService.get('session_user');
 
+      //check to see if there's user id/session stored in
+      //user's browser cookies
       if (sessionUser){
         return true;
       }else {
+        //if there's no user id/session exist in user's browser
+        //They will be taken to logging page
         this.router.navigate(['/session/login']);
         return false;
       }

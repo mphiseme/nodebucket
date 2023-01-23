@@ -50,12 +50,15 @@ export class LoginComponent implements OnInit {
 
       next: (res) => {
         if (res) {
+          console.log('This is the response from the findEmployeeById API');
+          console.log(res);
+
           this.employee = res;
           this.cookieServices.set('session_user', this.employee.empId.toString(), 1);
           this.cookieServices.set('session_name', `${this.employee.firstName} ${this.employee.lastName}`, 1);
           this.router.navigate(['/'])
         }else {
-         // Error message is the wrong invalid employeeId is entered.
+         // Error message when the wrong invalid employeeId is entered.
           this.errorMessages = [
             {severity: 'error', summary: 'Error', detail: 'Please enter a valid employeeId to continue'}
           ]

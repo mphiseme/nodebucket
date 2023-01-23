@@ -12,10 +12,17 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const EmployeeAPI = require('./routes/employee-api');
 const config = require('./data/config.json');
 
 const app = express(); // Express variable.
+
+/**
+ * The framework we need to run swagger
+ */
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+const EmployeeAPI = require('./routes/employee-api');
+
 
 /**
  * App configurations.
@@ -54,6 +61,26 @@ mongoose.connection.on('disconnected', () =>{
 /**
  * APIS go here
  */
+
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    explorer: true,
+  info: {
+    title: 'WEB 450 RESTful APIs',
+    version: '1.0.0',
+  },
+  },
+
+   /**
+   * Route to the api doc.
+   */
+   apis: ['./server/routes/employee-api.js'],
+};
+let openapiSpecification = swaggerJsdoc(options);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+
 app.use('/api/employees', EmployeeAPI);
 
 // Wire-up the Express server.

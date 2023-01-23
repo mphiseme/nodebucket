@@ -8,6 +8,7 @@
 
 //Imported statements
 import { LoginComponent } from './pages/login/login.component';
+import { ContactComponent } from './pages/contact/contact.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {BaseLayoutComponent} from "./shared/base-layout/base-layout.component";
@@ -27,6 +28,11 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       }
     ]
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'session',
