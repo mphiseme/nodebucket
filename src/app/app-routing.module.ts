@@ -26,14 +26,15 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },
-  {
-    path: 'contact',
-    component: ContactComponent,
-    canActivate: [AuthGuard]
-  },
+
   {
     path: 'session',
     component: AuthLayoutComponent,

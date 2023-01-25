@@ -10,3 +10,13 @@
   width: 35%;
   margin: 10% auto;
 }
+footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+
+}
+.footer-content{
+  background-color: #425b95;
+
+}

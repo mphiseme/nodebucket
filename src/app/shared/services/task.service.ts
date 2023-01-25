@@ -1,3 +1,12 @@
+/**
+ Title auth-layout.component.ts
+ Author: Professor Krasso
+ Modified By: Manel Phiseme
+ Date Jan 25, 2023
+ Description login component for NodeBucket app
+ */
+
+//imported statements
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
