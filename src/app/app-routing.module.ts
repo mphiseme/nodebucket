@@ -15,6 +15,8 @@ import {BaseLayoutComponent} from "./shared/base-layout/base-layout.component";
 import {HomeComponent} from "./pages/home/home.component";
 import { AuthGuard } from './auth.guard';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { AboutComponent } from './pages/about/about.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 //Auth and base layout Routes
 const routes: Routes = [
@@ -31,6 +33,11 @@ const routes: Routes = [
         path: 'contact',
         component: ContactComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },
@@ -42,6 +49,10 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'not-found',
+        component: NotFoundComponent
       }
     ]
   }

@@ -7,6 +7,7 @@
 */
 
 export interface Item {
-  text: string
+  text: string;
+  _id: string;
 
 }

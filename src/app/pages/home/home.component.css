@@ -5,11 +5,13 @@
 .title {
   text-align: center;
   font-weight: lighter;
+  color:#222f5b;
 }
 
 .subtitle {
   text-align: center;
   font-size: 14px;
+  color: #222f5b;
 }
 
 .task-container {
@@ -20,7 +22,7 @@
 .task-column {
   border: 1px solid #ccc;
   min-height: 68px;
-  background: white;
+  background: #946b2d;
   border-radius: 4px;
   overflow: hidden;
   display: block;

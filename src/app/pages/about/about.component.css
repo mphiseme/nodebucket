@@ -1,0 +1,27 @@
+.ImageCent{
+  margin: 0 auto;
+}
+
+.textTxt{
+  text-align: center;
+
+  }
+.titleAb {
+  font-size: 30;
+  width:100%;
+  text-align: center;
+  padding-top: 30px;
+}
+.content-con{
+  width: 45%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 17px;
+  background-color: #946b2d;
+}
+.textBck{
+  background-color: #946b2d;
+}
+p{
+  color: #222f5b;
+}

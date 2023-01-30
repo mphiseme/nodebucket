@@ -217,4 +217,134 @@ router.post('/:empId/tasks', async(req, res)=>{
   }
 })
 
+/**
+ * Delete tasks
+ */
+
+router.delete('/:empId/tasks/:taskId', async(req, res)=>{
+  try{
+    Employee.findOne({'empId': req.params.empId}, function(err, emp){
+      if(err){
+        console.log(err);
+        res.status(501).send({
+          'err':'MongoDB Server error:' + err.message
+        })
+
+      }else{
+        console.log(emp)
+
+        if(emp){
+
+          const taskId = req.params.taskId;
+
+          const todoItem = emp.todo.find(item => item._id.toString() === taskId);
+          const doneItem = emp.done.find(item => item._id.toString() === taskId);
+
+          if (todoItem){
+            emp.todo.id(todoItem._id).remove();
+
+            emp.save(function(err, updatedEmp){
+              if(err){
+                console.log(err);
+                res.status(501).send({
+                  'err':"MongoDb server error"
+                })
+              }else{
+                console.log(updatedEmp);
+                res.json(updatedEmp);
+              }
+            })
+          } else if (doneItem) {
+            emp.done.id(doneItem._id).remove();
+
+            emp.save(function(err, updatedEmp){
+              if(err){
+                console.log(err);
+                res.status(501).send({
+                  'err': "MongoDb server error"
+                })
+
+              }else{
+                console.log(updatedEmp);
+                res.json(updatedEmp)
+              }
+            })
+          }else{
+            console.log('Invalid taskId:' + taskId);
+            res.status(501).send({
+              'err':"Invalid taskId:" + taskId
+            })
+          }
+
+        }else{
+          console.log("no employee is found with this empId:" + req.params.empId);
+          res.status(501).send({
+            'err': 'Employee' + req.body.empId + 'does not belong to the registered user'
+          })
+        }
+      }
+    })
+
+  }catch(e){
+    console.log(e);
+    res.status(500).send({
+      'err': 'Internal server error' + e.message
+
+    })
+  }
+})
+
+/**
+ * Update tasks
+ */
+router.put('/:empId/tasks', async(req, res)=>{
+  try {
+    Employee.findOne({'empId': req.params.empId}, function(err, emp){
+      if(err){
+        console.log(err)
+        res.status(501).send({
+          'err': "MongoDB Server error" + err.message
+        })
+
+      }else {
+        console.log(emp)
+
+        if(emp){
+
+          emp.set({
+            todo: req.body.todo,
+            done: req.body.done
+          });
+
+          emp.save(function(err, updateEmp){
+            if(err){
+              console.log(err)
+              res.status(501).send({
+                'err': "MongoDB Server error" + err.message
+              })
+
+            }else{
+              console.log(updateEmp)
+              res.json(updateEmp)
+
+            }
+          })
+
+        }else{
+          console.log("no employee is found with this empId:" + req.params.empId);
+
+          res.status(501).send({
+            'err': 'EmployeeId:'+ req.params.empId + 'does not belong to the registered user'
+          })
+        }
+      }
+    })
+  }catch (e){
+    console.log(e);
+    res.status(500).send({
+      'err': "Internal server errors" + e.message
+    })
+  }
+})
+
 module.exports = router;

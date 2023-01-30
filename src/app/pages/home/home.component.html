@@ -71,9 +71,19 @@ https://github.com/angular/flex-layout
         <mat-card class="mat-elevation-z0">
           <mat-card-title>ToDo</mat-card-title>
 
+          <!--[cdkDropListConnectedTo]="[doneList]"-->
+
           <mat-card-content>
-            <div class="task-colum">
-              <div *ngFor="let item of todo">
+            <div
+              fxLayout="column"
+              fxLayoutGap="10px"
+               class="task-column"
+               cdkDropList
+               #todoList="cdkDropList"
+               [cdkDropListData]="todo"
+
+               (cdkDropListDropped)="drop($event)">
+              <div *ngFor="let item of todo" cdkDrag>
 
                 <mat-card class="mat-elevation-z0 task-card">
                   <mat-card-content>
@@ -84,32 +94,54 @@ https://github.com/angular/flex-layout
                         {{item.text}}
                       </div>
 
+                      <!--Code to delete task-->
+                      <div fxFlex fxLayoutAlign="end" style="margin-top: -7px;">
+                        <button mat-icon-button (click)="deleteTask(item._id)">
+                          <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                      </div>
                       <!--code to delete task (These are the codes that will delete tasks)-->
                     </div>
                   </mat-card-content>
                 </mat-card>
-
               </div>
             </div>
-
           </mat-card-content>
         </mat-card>
       </div>
 
       <!--This is where the done tasks will appear (done column)-->
       <div fxFlex>
-
         <mat-card class="mat-elevation-z0">
           <mat-card-title>Done</mat-card-title>
           <mat-card-content>
+            <div
+              fxLayout="column"
+              fxLayoutGap="10px"
+               class="task-column"
+               cdkDropList
+               #todoList="cdkDropList"
+               [cdkDropListData]="done"
+               [cdkDropListConnectedTo]="[todoList]"
 
-            <div class="task-column">
-              <div *ngFor="let item of done">
+               (cdkDropListDropped)="drop($event)">
+
+
+              <div *ngFor="let item of done" cdkDrag>
 
                 <mat-card class="mat-elevation-z0 task-card">
                   <div fxLayout="row">
                     <div fxFlex>
+                      {{item.text}}
+                    </div>
 
+                    <!--code to delete task-->
+
+                    <!--Code to delete task-->
+                    <div fxFlex fxLayoutAlign="end" style="margin-top: -7px;">
+                      <button mat-icon-button (click)="deleteTask(item._id)">
+                        <mat-icon color="warn">delete</mat-icon>
+                      </button>
                     </div>
                   </div>
                 </mat-card>
