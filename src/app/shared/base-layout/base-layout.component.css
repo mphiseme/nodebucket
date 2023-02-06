@@ -11,12 +11,12 @@
   margin: 10% auto;
 }
 footer {
+  position: fixed;
   bottom: 0;
-  position: absolute;
   width: 100%;
-
 }
 .footer-content{
   background-color: #425b95;
+
 
 }

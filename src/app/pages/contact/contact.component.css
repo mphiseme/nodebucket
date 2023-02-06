@@ -1,13 +1,35 @@
 
+.titleAb {
+  font-size: 30px;
+  width:20%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #946b2d;
+  margin: 0 auto;
+  margin-top: 35px;
+  margin-bottom: 44px;
+  color: #222f5b;
+}
+
+.textT{
+  color: #222f5b;
+}
 
 .content-con{
-  width: 45%;
+  width: 25%;
   margin: 0 auto;
   text-align: center;
-  font-size: 17px;
+  box-sizing: border-box;
+
+  background-color: #946b2d;
+  margin-left: 55px;
+  margin-right: 55px;
+  padding-bottom: 100px;
 }
+
 .content{
-  width: 80%;
+  width: 95%;
   padding-bottom: 30px;
   margin: 0 auto
 
@@ -16,5 +38,8 @@
   padding-top: 30px;
   text-align: center;
   width:100%;
+}
+p {
+  font-size: 20px;
 }
 

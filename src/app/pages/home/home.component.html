@@ -71,8 +71,7 @@ https://github.com/angular/flex-layout
         <mat-card class="mat-elevation-z0">
           <mat-card-title>ToDo</mat-card-title>
 
-          <!--[cdkDropListConnectedTo]="[doneList]"-->
-
+          <!--Code allow the movement of tasks from one column to another-->
           <mat-card-content>
             <div
               fxLayout="column"
@@ -81,6 +80,7 @@ https://github.com/angular/flex-layout
                cdkDropList
                #todoList="cdkDropList"
                [cdkDropListData]="todo"
+               [cdkDropListConnectedTo]="[doneList]"
 
                (cdkDropListDropped)="drop($event)">
               <div *ngFor="let item of todo" cdkDrag>
@@ -115,12 +115,13 @@ https://github.com/angular/flex-layout
         <mat-card class="mat-elevation-z0">
           <mat-card-title>Done</mat-card-title>
           <mat-card-content>
+            <!--Code allow the movement of tasks from one column to another-->
             <div
               fxLayout="column"
               fxLayoutGap="10px"
                class="task-column"
                cdkDropList
-               #todoList="cdkDropList"
+               #doneList="cdkDropList"
                [cdkDropListData]="done"
                [cdkDropListConnectedTo]="[todoList]"
 

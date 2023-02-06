@@ -218,7 +218,38 @@ router.post('/:empId/tasks', async(req, res)=>{
 })
 
 /**
- * Delete tasks
+ * deleteTasks
+ * @openapi
+ * /api/employees/{empId}/tasks/{taskId}:
+ *  delete:
+ *    tags:
+ *      - Employees
+ *    description: This Api deleting tasks
+ *    summary: Delete tasks
+ *    parameters:
+ *      - in: path
+ *        name: empId
+ *        description: The Id of the employee involved.
+ *        required: true
+ *        schema:
+ *          type: number
+ *      - in: path
+ *        name: taskId
+ *        description: The id of the task that need to be deleted
+ *        required: true
+ *        schema:
+ *          type: string
+ *    response:
+ *      '200':
+ *        description: Tasks that were delete
+ *      '500':
+ *        description: Server Exception
+ *      '501':
+ *        description: MongoDb Exception
+ */
+
+/**
+ * deleteTask
  */
 
 router.delete('/:empId/tasks/:taskId', async(req, res)=>{
@@ -293,6 +324,31 @@ router.delete('/:empId/tasks/:taskId', async(req, res)=>{
     })
   }
 })
+
+/**
+ * updateTasks
+ * @openapi
+ * /api/employees/{empId}/tasks:
+ *  put:
+ *    tags:
+ *      - Employees
+ *    description: The api to update employee tasks
+ *    summary: update an employee tasks
+ *    parameters:
+ *      - in: path
+ *        name: empId
+ *        description: The id of the employee to update
+ *        required: yes
+ *        schema:
+ *          type: number
+ *    response:
+ *      '200':
+ *        description: The updated document
+ *      '500':
+ *        description: Server Exception
+ *      '501':
+ *        description: MongoDB Exception
+ */
 
 /**
  * Update tasks

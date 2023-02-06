@@ -82,8 +82,15 @@ export class HomeComponent implements OnInit {
   //this using the employee id and taskform requirments
   //to create new tasks
   createTask(){
+    /**
+     * variable newTask store task entered from the form
+     */
     const newTask = this.taskForm.controls['task'].value;
 
+    /**
+     * This code check if there's issue with empID and inputed task
+     * before creating it.
+     */
     this.taskService.createTask(this.empId, newTask).subscribe({
       next: (res:any) => {
         this.employee = res;
@@ -108,8 +115,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  /**
+   * THis function delete tasks
+   */
   deleteTask(taskId: string){
 
+    /**
+     * dialog message to double check with user if they want to delete
+     * tasks
+     */
     this.dialogData.header = 'Delete Record Dialog';
     this.dialogData.content = 'Are you sure you want to delete this task?';
 
@@ -118,10 +132,15 @@ export class HomeComponent implements OnInit {
       disableClose: true
     })
 
+    /**
+     * Action that need to be taken after dialog box is closed
+     */
     dialogRef.afterClosed().subscribe({
       next: (result) => {
         console.log(result)
-
+        /**
+         * this delete task
+         */
         if(result === 'confirm'){
           this.taskService.deleteTask(this.empId, taskId).subscribe({
             next: (res) => {
@@ -140,6 +159,10 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  /**
+   * THis allow the drag of tasks in the same column up and down or
+   * To another column back and forth
+   */
   drop(event: CdkDragDrop<any[]>){
     if (event.previousContainer === event.container){
 
@@ -159,6 +182,10 @@ export class HomeComponent implements OnInit {
         this.updateTaskList(this.empId, this.todo, this.done);
     }
   }
+  /**
+   * This code list update the todo list and done list
+   * check if there's any errors with the actions
+   */
   updateTaskList(empId: number, todo: Item[], done: Item[]){
     // write the code to call the update API
      //write the code the call the update API

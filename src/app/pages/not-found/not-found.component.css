@@ -1,0 +1,39 @@
+.notFound{
+  width: 100%;
+  background-color: none;
+}
+.notFound2{
+  height: 100%;
+  background-color: none;
+}
+.center{
+  width: 50%;
+  float: left;
+  text-align: center;
+
+}
+.center2{
+  margin:0 auto;
+  background-color: blue;
+  height: 100px;
+
+
+}
+img{
+  padding-top: 50px;
+}
+.codeL{
+  text-align: center;
+  font-size:200px;
+  margin-top: 235px;
+}
+.errMessage{
+  text-align: center;
+  font-size: 30px;
+  padding-top: 60px;
+  padding-bottom: 15px;
+}
+.errMessage2{
+  padding-left: 55px;
+  font-size: 25px;
+}

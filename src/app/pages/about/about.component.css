@@ -1,27 +1,53 @@
+/**
+ Title: about.component.css
+ Author: Professor Krasso
+ Modified By: Manel Phiseme
+ Date fed 5, 2023
+ Description: css formating logging form for Nodebucket project
+*/
+
 .ImageCent{
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
-.textTxt{
-  text-align: center;
 
-  }
 .titleAb {
-  font-size: 30;
-  width:100%;
+  font-size: 30px;
+  width:20%;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #946b2d;
+  margin: 0 auto;
+  margin-top: 23px;
+  margin-bottom: 30px;
+  color: #222f5b;
 }
+
+
 .content-con{
-  width: 45%;
   margin: 0 auto;
   text-align: center;
   font-size: 17px;
   background-color: #946b2d;
+  flex-wrap: wrap;
+  width: 50%;
 }
-.textBck{
-  background-color: #946b2d;
+
+.ImageAb{
+  margin-bottom: 44px;
 }
+
 p{
   color: #222f5b;
 }
+.pDiv{
+  padding-left: 23px;
+  padding-right: 23px;
+
+}
+
+
+
+

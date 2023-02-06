@@ -32,6 +32,7 @@ export class TaskService {
     })
   }
 
+   //function to update employee tasks
   updateTask(empId: number, todo: Item[], done: Item[]): Observable<any>{
     return this.http.put('/api/employees/' + empId + '/tasks',{
       todo,
@@ -39,6 +40,7 @@ export class TaskService {
     } )
   }
 
+   //function to delete tasks
   deleteTask(empId: number, taskId: string ): Observable<any>{
     return this.http.delete('/api/employees/' + empId + '/tasks/' + taskId)
   }

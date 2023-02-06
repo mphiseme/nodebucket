@@ -1,3 +1,11 @@
+/**
+ Title not-found.component.ts
+ Author: Professor Krasso
+ Modified By: Manel Phiseme
+ Date feb 2, 2023
+ Description login component for NodeBucket app
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
