@@ -12,8 +12,8 @@
     "render-deploy": "ng build --configuration=production"
   },
   "engines": {
-    "npm": "9.1.3",
-    "node": "v16.16.0"
+    "node": "v16.16.0",
+    "npm": "9.1.3"
   },
   "private": true,
   "dependencies": {
