@@ -13,15 +13,12 @@
 
 
 .titleAb {
-  font-size: 30px;
-  width:20%;
+  font-size: 25px;
+  width: 70px;
   text-align: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 23px 90px 23px 40px;
   background-color: #946b2d;
   margin: 0 auto;
-  margin-top: 23px;
-  margin-bottom: 30px;
   color: #222f5b;
 }
 
@@ -29,10 +26,11 @@
 .content-con{
   margin: 0 auto;
   text-align: center;
-  font-size: 17px;
+  font-size: 20px;
   background-color: #946b2d;
   flex-wrap: wrap;
   width: 50%;
+
 }
 
 .ImageAb{
@@ -45,6 +43,7 @@ p{
 .pDiv{
   padding-left: 23px;
   padding-right: 23px;
+  padding-bottom: 45px;
 
 }
 
